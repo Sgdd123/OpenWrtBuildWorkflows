@@ -24,8 +24,8 @@ on:
         default: "false"
       ssh:
         description: "SSH connection to Actions"
-        required: false
-        default: "false"
+        required: true
+        default: "true"
 # Uncomment the following to run regularly. Note that the cron expression here does not contain seconds.
 #  schedule:
 #    - cron: 0 */18 * * *
@@ -34,9 +34,9 @@ env:
   # REPO means the OpenWrt repo you want to build from in this workflow. 
   # You can modify the REPO_NAME to any name you want, but remember not to let it have the same name in 
   # other workflows.
-  REPO_NAME: example-name
-  REPO_URL: https://github.com/example/example.git
-  REPO_BRANCH: example-branch
+  REPO_NAME: openwrt
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
   BUILD_DEPENDS:  "ack antlr3 aria2 asciidoc autoconf automake autopoint binutils bison build-essential bzip2 \
                    ccache clang cmake cpio curl device-tree-compiler fastjar file flex gawk gettext gcc-multilib \
                    g++ g++-multilib git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev \
@@ -62,7 +62,7 @@ env:
   # The following are options of where the firmware needs to be transfered. 
   COWTRANSFER_FIRMWARE: false
   WETRANSFER_FIRMWARE: false
-  RELEASE_FIRMWARE: false
+  RELEASE_FIRMWARE: true
   # Change the following to your time zone.
   TIME_ZONE: Asia/Shanghai
 
